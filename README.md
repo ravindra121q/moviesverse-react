@@ -4,6 +4,9 @@ A responsive, high-performance movie  web application built with **React (Vite)*
 
 This project replicates a IMDB-like experience — allowing users to explore movies, view details and trailers, manage favourites, and toggle between light/dark themes.
 
+📘 **Read Full Documentation:**
+👉 [https://moviesverse-docs.vercel.app/#/](https://moviesverse-docs.vercel.app/#/)
+
 ---
 
 ## 🚀 Features
