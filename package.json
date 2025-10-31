@@ -3,14 +3,42 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "main": "electron/main.mjs",
   "scripts": {
-    "dev": "vite",
-    "start": "vite",
-    "build": "vite build",
+   "dev:electron": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && cross-env VITE_DEV_SERVER_URL=http://localhost:5173 electron .\"",
+    "start:electron": "electron .",
+    "build:electron": "npm run build && electron-builder",
     "lint": "eslint .",
     "preview": "vite preview",
     "docs": "docsify serve docs",
     "docs:build": "cp -r docs dist/docs"
+  },
+  "build": {
+    "appId": "com.moviesverse.app",
+    "productName": "MoviesVerse",
+    "directories": {
+      "buildResources": "assets",
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "mac": {
+      "category": "public.app-category.entertainment",
+      "target": ["dmg"],
+      "icon": "assets/icon.png"
+    },
+    "win": {
+      "target": ["nsis"],
+      "icon": "assets/icon.ico"
+    },
+    "linux": {
+      "target": ["AppImage"],
+      "icon": "assets/"
+    }
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.11",
