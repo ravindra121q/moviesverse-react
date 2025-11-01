@@ -1,56 +1,24 @@
 {
   "name": "movies_verse_app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
-  "main": "electron/main.mjs",
   "scripts": {
-   "dev:electron": "concurrently -k \"vite\" \"wait-on http://localhost:5173 && cross-env VITE_DEV_SERVER_URL=http://localhost:5173 electron .\"",
-    "start:electron": "electron .",
-    "build:electron": "npm run build && electron-builder",
-    "lint": "eslint .",
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
     "preview": "vite preview",
+    "lint": "eslint .",
     "docs": "docsify serve docs",
     "docs:build": "cp -r docs dist/docs"
   },
-  "build": {
-    "appId": "com.moviesverse.app",
-    "productName": "MoviesVerse",
-    "directories": {
-      "buildResources": "assets",
-      "output": "release"
-    },
-    "files": [
-      "dist/**/*",
-      "electron/**/*",
-      "package.json"
-    ],
-    "asar": true,
-    "mac": {
-      "category": "public.app-category.entertainment",
-      "target": ["dmg"],
-      "icon": "assets/icon.png"
-    },
-    "win": {
-      "target": ["nsis"],
-      "icon": "assets/icon.ico"
-    },
-    "linux": {
-      "target": ["AppImage"],
-      "icon": "assets/"
-    }
-  },
   "dependencies": {
-    "@tailwindcss/postcss": "^4.1.11",
     "@tailwindcss/vite": "^4.1.16",
     "@tanstack/react-query": "^5.90.5",
-    "@vitejs/plugin-react-swc": "^3.11.0",
     "apexcharts": "^4.7.0",
     "axios": "^1.13.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "core-js": "^3.44.0",
-    "css-vars-ponyfill": "^2.4.9",
     "dayjs": "^1.11.13",
     "firebase": "^12.1.0",
     "i18next": "^25.6.0",
@@ -79,22 +47,14 @@
     "@iconify-icon/react": "^3.0.0",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react": "^4.4.1",
+    "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.21",
-    "concurrently": "^9.2.1",
-    "cross-env": "^10.1.0",
-    "electron": "^39.0.0",
-    "electron-builder": "^26.0.12",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.16",
-    "tw-animate-css": "^1.3.4",
-    "vite": "^6.3.5",
-    "vite-plugin-pwa": "^1.1.0",
-    "wait-on": "^9.0.1",
-    "workbox-window": "^7.3.0"
+    "vite": "^6.3.5"
   }
 }

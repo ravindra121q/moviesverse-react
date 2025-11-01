@@ -13,7 +13,7 @@ const RegisterPage = () => {
   } = useForm({ mode: "onTouched" });
 
   const onSubmit = async (data) => {
-    console.log(data);
+    
     addUser({ user: data, setIsLoading, onSuccess:()=>navigate("/") });
 
   };

@@ -175,8 +175,7 @@ firebase deploy
 ## 📈 Future Improvements
 
 - Integrate **Firebase Firestore** for persistent favourites
-- Add **Analytics (Firebase Analytics)**
-- Implement **i18n** (multi-language support)
+- Add **Analytics (Firebase Analytics)** 
 - Convert to **PWA** or **Electron** for desktop experience
 
 ---

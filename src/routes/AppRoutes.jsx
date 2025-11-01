@@ -2,10 +2,10 @@ import React, { Suspense, useContext } from "react";
 import ProtectedRoute from "./ProtectedRoute";
 import { routes } from "./routesConfig";
 import { LoadingSpinner } from "../components/common/Loading/LoadingSpinner";
-// import { useAuth } from "../context/useAuth";
 import { Routes, Route } from "../lib/exports";
 import { AuthContext } from "../context/AuthContext";
-
+import ErrorBoundary from "../components/common/ErrorBoundary";
+import TestError from "../components/common/TestError";
 
 const AppRoutes = () => {
   const { isAuthenticated, loading: authLoading } = useContext(AuthContext);
@@ -30,13 +30,17 @@ const AppRoutes = () => {
     ));
 
   return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <Routes>
-        {renderRoutes(routes.public)}
-        {renderRoutes(routes.protected, true)}
-        <Route path="*" element={<routes.notFound.component />} />
-      </Routes>
-    </Suspense>
+    <ErrorBoundary>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+
+          {renderRoutes(routes.public)}
+          {renderRoutes(routes.protected, true)}
+          <Route path="/test-error" element={<TestError />} />
+          <Route path="*" element={<routes.notFound.component />} />
+        </Routes>
+      </Suspense>
+    </ErrorBoundary>
   );
 };
 

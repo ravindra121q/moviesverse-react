@@ -34,7 +34,6 @@ const LoginPage = () => {
         password: data.password,
       },
        onSuccess: (data) => {
-         console.log(data);
          localStorage.setItem("authToken", "loggedIn");
         setUser(data);
         navigate("/movies");
@@ -47,7 +46,7 @@ const LoginPage = () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       const credential = GoogleAuthProvider.credentialFromResult(result);
-      // console.log(result);
+      
       const payload = {
         firstName: result?.user?.displayName?.split(" ")[0],
         lastName: result?.user?.displayName?.split(" ")[1],

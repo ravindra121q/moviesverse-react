@@ -9,7 +9,7 @@ i18n
     fallbackLng: "en",
     supportedLngs: ["en", "hi"],
     nonExplicitSupportedLngs: true,
-    debug: import.meta.env.MODE === "development",
+    debug: false,
     detection: {
       order: ["localStorage", "navigator", "htmlTag", "cookie", "querystring"],
       caches: ["localStorage", "cookie"],
