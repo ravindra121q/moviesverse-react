@@ -193,7 +193,7 @@ Performs local login by verifying credentials stored in localStorage.
 loginUser({
   user: { email: "test@gmail.com", password: "123456" },
   setIsLoading,
-  onSuccess: (data) => console.log("Logged in user:", data)
+  // onSuccess: (data) => console.log("Logged in user:", data)
 });
 ```
 
